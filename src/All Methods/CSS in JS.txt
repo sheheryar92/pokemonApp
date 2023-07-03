@@ -1,0 +1,18 @@
+we are going to use  
+emotion
+a css liberary for react.
+
+
+import Styled from '@emotion/styled'
+
+
+
+     <Title>Pokemon Search App</Title>
+
+
+
+
+
+     const Title = Styled.h1({
+  textAlign: 'center'
+})

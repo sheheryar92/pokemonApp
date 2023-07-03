@@ -1,0 +1,59 @@
+  // State and Events
+  const [val, setVal] = useState("");
+  const [select, setSelect] = useState(null);
+  // State and Events
+
+
+
+    // State and Events
+
+  return (
+    // select && (<div>{select.name.english}</div>)
+    <div>
+      <h1>pokemon list importing from pokemon json file</h1>
+      <br />
+      <input
+        placeholder="search pokemon..."
+        value={val}
+        className="input_search"
+        type="text"
+        onChange={(e) => {
+          setVal(e.target.value);
+        }}
+      />
+
+      {/* table */}
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Names</th>
+              <th>Types</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Poke.filter(
+              (pokemonFilter) =>
+                pokemonFilter.name.english
+                  .toLocaleLowerCase()
+                  .includes(val.toLocaleLowerCase())
+              //includes is case sensitve , to let the includes work properly , and let it filter the value accuratley we do add toLowerCase function so it will make it incase-sensitve and it will work properly
+            )
+              .slice(0, 10)
+              .map((item, key) => (
+                <tr key={key}>
+                  <td>{item.name.english}</td>
+                  <td>{item.type.join()}</td>
+
+                  {/* // State and Events */}
+                  <td>
+                    {" "}
+                    <button
+                      onClick={() => {
+                        setSelect(item);
+                      }}
+                    >
+                      select
+                    </button>
+                  </td>
+                  {/* // State and Events */}

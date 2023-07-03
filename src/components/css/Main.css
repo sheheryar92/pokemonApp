@@ -1,0 +1,18 @@
+.bg_color {
+
+
+display: flex;
+justify-content: center;
+
+}
+
+.item {
+    background-color: azure;
+}
+.delete_cion {
+    cursor: pointer;
+}
+
+.edit_icon {
+    cursor: pointer;
+}

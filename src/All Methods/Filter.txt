@@ -1,0 +1,30 @@
+filter allow us to apply a filter to an array and it returns the array where only the array elemtns match the critareia `
+specidifed in the function that's given in a filter function.
+
+
+
+
+
+ const [val, setVal] = useState("");
+
+   <input
+        placeholder="search pokemon..."
+        value={val}
+        className="input_search"
+        type="text"
+        onChange={(e) => {
+          setVal(e.target.value);
+        }}
+      />
+
+// we give a pokemonFilter name to the function inside a function of filter.
+.filter((pokemonFilter) => pokemonFilter.name.english)
+
+// we said the if the pokemonFilter name english is avaliable then we gona includes Val.
+.filter((pokemonFilter) => pokemonFilter.name.english.includes(val) )
+
+
+// includes is case sensiutive, so we hve to define the case in includes method.
+// toLowerCase
+// WE ALSO MAKE POKEFILTER TO toLowerCase
+.filter((pokemonFilter) => pokemonFilter.name.english.toLocaleLowerCase.includes(val.toLocaleLowerCase()) )

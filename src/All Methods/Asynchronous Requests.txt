@@ -1,0 +1,25 @@
+We talk to web services , it call Asynchronous 
+
+useEffect runs a function in reaction of a change
+
+
+useEffect(() => {
+
+}, []  ===> What this does ? if this is empty that means , the useEffect will only run once when the componet first time renderd on the page,  and then  nerver runs again.
+
+)
+
+
+As an Example : Ager hum website load hony kai baad data chiye api sai to wo to sirf aik hi bar chiye hoga na uskyh bad to nahi chiye hoga duubara data bar bar to is waja sai aik bar data hasil krny kai liye useEffect use karen gai with emty array.
+
+ const [data, setData] = useState([]);
+
+
+  // Asynchronous Requests
+  useEffect(() => {
+    fetch("http://localhost:3000/pokemon.json")
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch(() => console.error());
+  }, []);
+  // Asynchronous Requests

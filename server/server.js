@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const todoModel = require("./todoSchema");
 const { json } = require("body-parser");
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = 4000;
@@ -15,16 +16,11 @@ app.listen(port, console.log(`app is running on port : ${port}`));
 
 mongoose
   .connect(
-    ""
+    "mongodb+srv://newUser:user321@todocluster.03cdcho.mongodb.net/dbName?retryWrites=true&w=majority"
   )
   .then(console.log("connected to data base"))
   .catch((error) => console.log(error));
 
-app.get("/", (req, res) => {
-  res.send("hello world from server");
-
-  console.log(res.send("hello world"));
-});
 
 
 
@@ -39,14 +35,25 @@ app.post("/", (req, res) => {
  console.log(req.body, "this is body data");
 });
 
+
+
+
+
 //// READING DATA FROM DATA BASE
 app.get("/data", async (req, res) => {
   const loadData = await todoModel.find({});
-console.log(loadData);
- res.send(loadData);
+
+ res.json(loadData);
 });
 
 
 
-
-
+// SEARCH DATA FROM DATA BASE
+app.get("/search/:id", async  (req, res) => {
+ const getId  = await todoModel.findById(req.params.id)
+if(!getId){
+  res.status(404).send('id not found in data base')
+}else{
+  res.status(200).send(getId)
+}
+  });
